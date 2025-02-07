@@ -19,7 +19,7 @@
 class AudioService
 {
 public:
-    static bool setup();
+    static void setup();
     static void record();
     static const int16_t *getBuffer();
     static size_t getBufferSize();

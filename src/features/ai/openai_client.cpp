@@ -6,7 +6,7 @@ String OpenAIClient::makeRequest(const String &userInput)
 {
     HTTPClient http;
     http.setTimeout(10000);
-    http.begin(OPENAI_ENDPOINT);
+    http.begin(String(OPENAI_ENDPOINT) + "chat/completions");
     http.addHeader("Content-Type", "application/json");
     http.addHeader("Authorization", String("Bearer ") + OPENAI_API_KEY);
 
@@ -41,7 +41,7 @@ String OpenAIClient::transcribeAudio(const int16_t *audioBuffer, size_t bufferSi
 {
     HTTPClient http;
     http.setTimeout(30000);
-    http.begin("https://api.openai.com/v1/audio/transcriptions");
+    http.begin(String(OPENAI_ENDPOINT) + "audio/transcriptions");
     http.addHeader("Authorization", String("Bearer ") + OPENAI_API_KEY);
 
     // Create WAV header

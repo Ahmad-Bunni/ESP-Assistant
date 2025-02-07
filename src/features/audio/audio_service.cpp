@@ -4,17 +4,16 @@ int16_t *AudioService::audioBuffer = nullptr;
 size_t AudioService::audioBufferIndex = 0;
 int16_t AudioService::tempBuffer[1024];
 
-bool AudioService::setup()
+void AudioService::setup()
 {
     // Allocate buffer
     audioBuffer = (int16_t *)malloc(AUDIO_BUFFER_SIZE);
     if (!audioBuffer)
     {
         Serial.println("Failed to allocate audio buffer");
-        return false;
     }
 
-    return configureI2S();
+    configureI2S();
 }
 
 bool AudioService::configureI2S()

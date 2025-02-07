@@ -8,13 +8,7 @@ void setup()
 {
   Serial.begin(115200);
 
-  // Initialize core services
-  if (!AudioService::setup())
-  {
-    Serial.println("Audio init failed");
-    return;
-  }
-
+  AudioService::setup();
   LEDManager::initialize();
   WiFiManager::connect();
 }
@@ -26,11 +20,9 @@ void loop()
     while (Serial.available())
       Serial.read();
 
-    // Record audio
     LEDManager::setRequestInProgress(true);
     AudioService::record();
 
-    // Process with OpenAI
     String transcription = OpenAIClient::transcribeAudio(
         AudioService::getBuffer(),
         AudioService::getBufferSize());
