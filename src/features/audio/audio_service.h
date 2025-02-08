@@ -6,7 +6,7 @@
 
 // Core configuration
 #define SAMPLE_RATE 16000
-#define RECORD_TIME 5000 // 5 seconds recording
+#define RECORD_TIME 3000 // 5 seconds recording
 #define BYTES_PER_SAMPLE 2
 #define AUDIO_BUFFER_SIZE ((SAMPLE_RATE * RECORD_TIME / 1000) * BYTES_PER_SAMPLE)
 

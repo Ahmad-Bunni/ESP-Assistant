@@ -8,9 +8,6 @@ class WiFiManager
 public:
     static void connect();
     static bool isConnected();
-
-private:
-    static void printWiFiStatus();
 };
 
 #endif // WIFI_MANAGER_H
