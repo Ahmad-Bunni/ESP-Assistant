@@ -103,6 +103,8 @@ void TaskManager::aiTask(void *parameter)
                     AudioService::getBuffer(),
                     AudioService::getBufferSize());
 
+                Serial.println("Transcription: " + transcription);
+
                 Serial.println("Making request");
                 String response = OpenAIClient::makeRequest(transcription);
                 Serial.println(response);
